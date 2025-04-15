@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Ocean Exploration</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: linear-gradient(to bottom, #0a1b3d, #000);
+            overflow-x: hidden;
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2em;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .depth-section {
+            margin: 40px 0;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .depth-section:hover {
+            transform: scale(1.02);
+        }
+        #epipelagic {
+            background: linear-gradient(to right, #1e90ff, #00b7eb);
+        }
+        #mesopelagic {
+            background: linear-gradient(to right, #4682b4, #191970);
+        }
+        #bathypelagic {
+            background: linear-gradient(to right, #2f4f4f, #000080);
+        }
+        #hadalpelagic {
+            background: linear-gradient(to right, #000000, #00008b);
+        }
+        .depth-section h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .depth-section p {
+            line-height: 1.6;
+            display: none;
+        }
+        .depth-section.active p {
+            display: block;
+        }
+        .creature {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            position: relative;
+        }
+        .creature img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .fish-animation {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            animation: swim 10s linear infinite;
+        }
+        @keyframes swim {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(1200px); }
+        }
+        .scroll-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .nav-buttons {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .nav-button {
+            background: #1e90ff;
+            border: none;
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .nav-button:hover {
+            background: #00b7eb;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .creature img {
+                width: 80px;
+                height: 80px;
+            }
+            .fish-animation {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Deep Ocean Exploration</h1>
+        <p>Scroll or click to discover the mysteries of the ocean depths</p>
+    </header>
+    <div class="container">
+        <div class="depth-section" id="epipelagic">
+            <h2>Epipelagic Zone (0-200m)</h2>
+            <p>The sunlit zone where most marine life thrives.</p>
+            <div class="creature">
+                <img src="https://via.placeholder.com/100?text=Salmon" alt="Atlantic Salmon">
+                <div>
+                    <h3>Atlantic Salmon</h3>
+                    <p>Found near the surface, known for its migratory journeys.</p>
+                </div>
+                <img class="fish-animation" src="https://via.placeholder.com/50?text=Fish" alt="Swimming Fish" style="top: 20px;">
+            </div>
+        </div>
+        <div class="depth-section" id="mesopelagic">
+            <h2>Mesopelagic Zone (200-1,000m)</h2>
+            <p>The twilight zone with faint light and unique adaptations.</p>
+            <div class="creature">
+                <img src="https://via.placeholder.com/100?text=Squid" alt="Firefly Squid">
+                <div>
+                    <h3>Firefly Squid</h3>
+                    <p>Emits bioluminescent light to navigate and hunt.</p>
+                </div>
+                <img class="fish-animation" src="https://via.placeholder.com/50?text=Fish" alt="Swimming Fish" style="top: 50px;">
+            </div>
+        </div>
+        <div class="depth-section" id="bathypelagic">
+            <h2>Bathypelagic Zone (1,000-4,000m)</h2>
+            <p>Complete darkness, home to bizarre creatures.</p>
+            <div class="creature">
+                <img src="https://via.placeholder.com/100?text=Anglerfish" alt="Anglerfish">
+                <div>
+                    <h3>Anglerfish</h3>
+                    <p>Uses a bioluminescent lure to attract prey.</p>
+                </div>
+                <img class="fish-animation" src="https://via.placeholder.com/50?text=Fish" alt="Swimming Fish" style="top: 30px;">
+            </div>
+        </div>
+        <div class="depth-section" id="hadalpelagic">
+            <h2>Hadalpelagic Zone (6,000-11,000m)</h2>
+            <p>The deepest trenches, like the Mariana Trench.</p>
+            <div class="creature">
+                <img src="https://via.placeholder.com/100?text=Snailfish" alt="Snailfish">
+                <div>
+                    <h3>Snailfish</h3>
+                    <p>Survives extreme pressure at record depths.</p>
+                </div>
+                <img class="fish-animation" src="https://via.placeholder.com/50?text=Fish" alt="Swimming Fish" style="top: 40px;">
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator" id="depth">Depth: 0m</div>
+    <div class="nav-buttons">
+        <button class="nav-button" onclick="scrollToSection('epipelagic')">Epipelagic</button>
+        <button class="nav-button" onclick="scrollToSection('mesopelagic')">Mesopelagic</button>
+        <button class="nav-button" onclick="scrollToSection('bathypelagic')">Bathypelagic</button>
+        <button class="nav-button" onclick="scrollToSection('hadalpelagic')">Hadalpelagic</button>
+    </div>
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const depth = Math.floor(scrollPosition / 10);
+            document.getElementById('depth').textContent = `Depth: ${depth}m`;
+        });
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.querySelectorAll('.depth-section h2').forEach(header => {
+            header.addEventListener('click', () => {
+                const section = header.parentElement;
+                section.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
